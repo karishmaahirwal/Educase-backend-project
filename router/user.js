@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 // router.post("/api/user/admin/signup",user)
-router.post("/api/Register", user.Register);
+router.post("/Register", user.Register);
 
 router.post("/api/user/admin/login",user.login)
 

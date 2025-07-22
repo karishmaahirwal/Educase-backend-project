@@ -42,7 +42,7 @@ const Register = async (req, res) => {
     }
   } catch (error) {
     // res.send({ message: error.message, status: false });
-    res.status(500).send(baseResponse.withError(''));
+    res.status(500).send(baseResponse.withError('Registration failed', { error: error.message }));
   }
 };
 

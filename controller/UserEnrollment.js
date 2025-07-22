@@ -1,7 +1,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const Course = require("../model/EnrollmentSchema");
+const Enrollment = require("../model/EnrollmentSchema");
 const bcrypt = require("bcrypt");
 const { default: mongoose } = require("mongoose");
 const config = require("../config");
@@ -15,6 +15,14 @@ const { generateToken } = require("../helper/auth")
 // Course Enrollment
 const existingEnrollment  = async(req,res) =>{
     const { userId, courseId } = req.body;
+    
+    // Validate ObjectIds
+    if (!mongoose.Types.ObjectId.isValid(userId) || !mongoose.Types.ObjectId.isValid(courseId)) {
+        return res.status(400).json({
+            message: 'Invalid userId or courseId format',
+            status: false
+        });
+    }
     try {
         // Check if the user is already enrolled in the course
         const existingEnrollment = await Enrollment.findOne({ userId, courseId });
@@ -53,7 +61,14 @@ const getCoursesForUser = async (req,res) => {
 
 // View Enrolled Courses
 const enrolledCourses = async (req, res) => {
-    const userId = req.query.userId || req.user.userId; // Assuming userId is available in the request or from authentication
+    const userId = req.query.userId || (req.user && req.user.userId);
+        
+        if (!userId) {
+            return res.status(400).json({
+                message: 'User ID is required',
+                status: false
+            });
+        }
     try {
         const enrolledCourses = await Enrollment.find({ userId }).populate('courseId');
         res.json(enrolledCourses);

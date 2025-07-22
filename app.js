@@ -7,6 +7,7 @@ const config = require("./config");
 const course = require("./router/Course");
 const Enrollment = require("./router/Enrollment");
 const user = require("./router/user");
+const school = require("./router/School");
 // security
 app.use(helmet());
 
@@ -18,15 +19,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // mongodb database connect 
-mongoose.connect(
-"mongodb://localhost:27017/test",
-    {
-      useNeWUrlParser:true,
-      useUnifiedTopology:true,
-    }
-  )
-  .then(() => console.log("mongodb connected sucessfully..."))
-  .catch((err) => console.log(err));
+// mongoose.connect(
+// "mongodb://localhost:27017/test",
+//     {
+//       useNeWUrlParser:true,
+//       useUnifiedTopology:true,
+//     }
+//   )
+//   .then(() => console.log("mongodb connected sucessfully..."))
+  // .catch((err) => console.log(err));
 
 
 
@@ -37,6 +38,7 @@ app.get("/", (req, res) => res.send("success"));
 app.use("/api", course);
 app.use("/api", Enrollment)
 app.use("/api", user)
+app.use("/api", school)
 
 
 

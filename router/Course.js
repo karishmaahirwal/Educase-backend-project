@@ -23,7 +23,7 @@ router.get("/api",Course.readCourse);
 
 // router.get("/get/particular/book/:authorName", auth, Book.getParticularBookByAuthor);
 
-// router.get("/get/all/books",Book.getAllBooks);
+// router.get("/get/all/books",Book.getAllBooks);`
 
 
 
