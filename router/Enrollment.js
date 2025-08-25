@@ -4,14 +4,8 @@ const router = express.Router();
 const auth = require("../auth/adminMiddleware")
 
 
-router.post("/api",Enrollment.enrolledCourses)
-
-// router.post("/api/user/admin/login",login)
-
-// router.put("/api/user/admin/change-password/:email",changePassword)
-
-// router.get("/api/user/admin/get_signup",get_signup)
-
-// router.post("/api/user/admin/emailsending",sendmail)
+router.get("/enrolledCourses",Enrollment.enrolledCourses)
+router.post("/existingEnrollment",Enrollment.existingEnrollment)
+router.get("/getCoursesForUser/:userId",Enrollment.getCoursesForUser)
 
 module.exports = router

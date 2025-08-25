@@ -10,20 +10,13 @@ const auth = require("../auth/adminMiddleware");
 // post login from Books
 router.get("/api",Course.readCourse);
 
-// router.post("/add/book", auth, Book.addBook);
+router.post("/add/course", auth, Course.CreateCourese);
 
-// //Get all books
-// router.get("/get/all/book", auth, Book.getAllBook);
+//Delete course
+router.delete("/delete/course/:id", auth, Course.deleteCourse);
 
-// //Delete bookCollection
-// router.delete("/delete/book/:id", auth, Book.deleteBook);
-
-// //Patch books
-// router.patch("/update/book/:id", auth, Book.patchBook);
-
-// router.get("/get/particular/book/:authorName", auth, Book.getParticularBookByAuthor);
-
-// router.get("/get/all/books",Book.getAllBooks);`
+//Update course
+router.patch("/update/course/:id", auth, Course.updateCourse);
 
 
 
