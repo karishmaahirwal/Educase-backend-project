@@ -64,4 +64,4 @@ const verifyToken = (token, verified) => {
     // return data;
 }
 
-module.exports = {generateToken, accessToken, auth}
+module.exports = {generateToken, accessToken, auth};

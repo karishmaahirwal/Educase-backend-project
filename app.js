@@ -36,9 +36,9 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => res.send("success"));
 
 app.use("/api", course);
-app.use("/api", Enrollment)
-app.use("/api", user)
-app.use("/api", school)
+app.use("/api", Enrollment);
+app.use("/api", user);
+app.use("/api", school);
 
 
 

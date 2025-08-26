@@ -80,6 +80,6 @@ const enrolledCourses = async (req, res) => {
 module.exports = {
     enrolledCourses,
     getCoursesForUser,
-    existingEnrollment
+    existingEnrollment,
 };
 
