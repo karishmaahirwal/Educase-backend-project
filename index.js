@@ -29,10 +29,10 @@ app.listen(port, async () => {
     // await setupDatabase(); // Commented out until MySQL is running
 });
 
-app.use("/api",Course)
-app.use("/api",user)
-app.use("/api",Enrollment)
-app.use("/api",school)
+app.use("/api",Course);
+app.use("/api",user);
+app.use("/api",Enrollment);
+app.use("/api",school);
 
 
 
